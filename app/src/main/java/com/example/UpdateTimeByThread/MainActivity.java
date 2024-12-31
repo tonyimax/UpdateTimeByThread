@@ -26,6 +26,8 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         tv = binding.sampleText;
+        TextView native_tv = binding.nativeText;
+        native_tv.setText(stringFromJNI()+"\n"+GetDateTime()+"\n"+GetDateTimeByChrono());
     }
 
     @Override
@@ -57,4 +59,8 @@ public class MainActivity extends AppCompatActivity {
         return t;
     }
     public native String stringFromJNI();
+
+    public native String GetDateTime();
+
+    public native String GetDateTimeByChrono();
 }
